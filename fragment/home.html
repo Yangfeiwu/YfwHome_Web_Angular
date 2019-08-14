@@ -1,0 +1,223 @@
+
+ <!-- body 顶部加上如下代码 -->
+  <!-- <div class="weui-pull-to-refresh__layer">
+    <div class='weui-pull-to-refresh__arrow'></div>
+    <div class='weui-pull-to-refresh__preloader'></div>
+    <div class="down">下拉刷新</div>
+    <div class="up">释放刷新</div>
+    <div class="refresh">正在刷新</div>
+  </div> -->
+
+  <!-- 九宫格 -->
+<div >
+    <div class="demos-header">
+        <h1 class="demos-title">YfwHOME</h1>
+        <p class="demos-sub-title">{{Messages.getIsBound().title}}</p>
+        <p class="demos-sub-title">{{Messages.getDevMsg()}}</p>
+        <p> 实时图像显示：</p>
+         <img id="receiver" ng-src="{{Messages.getimg()}}" style="width:320px;height:240px"/>
+        
+    </div>
+    <div class="weui-grids">
+    
+   <!--
+        <a href="javascript:;" class="weui-grid" ng-click="refresh()">
+            <div class="weui-grid__icon">
+                <img src="../images/refresh_grey.png" alt="">
+            </div>
+            <p class="weui-grid__label" >刷新</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="controllPosture('head')"  ng-switch="showModel">
+            <div class="weui-grid__icon" ng-switch-when="pictureShow">
+                <img src="../images/head_grey.png" alt="">
+            </div>
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">抬背</div> 
+            <p class="weui-grid__label" >{{Messages.getPosture().head}}º</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="controllPosture('leg')"   ng-switch="showModel">
+            <div class="weui-grid__icon" ng-switch-when="pictureShow">
+                <img src="../images/leg_grey.png" alt="">
+            </div>
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">抬腿</div> 
+            <p class="weui-grid__label">{{Messages.getPosture().leg}}º</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="controllPosture('left')"  ng-switch="showModel">
+            <div class="weui-grid__icon" ng-switch-when="pictureShow">
+                <img src="../images/left_grey.png" alt="">
+            </div>
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">左翻</div> 
+            <p class="weui-grid__label">{{Messages.getPosture().left}}º</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="controllPosture('right')"  ng-switch="showModel">
+            <div class="weui-grid__icon" ng-switch-when="pictureShow">
+                <img src="../images/right_grey.png" alt="">
+            </div>
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">右翻</div> 
+            <p class="weui-grid__label">{{Messages.getPosture().right}}º</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="controllPosture('lift')"  ng-switch="showModel">
+            <div class="weui-grid__icon" ng-switch-when="pictureShow">
+                <img src="../images/lift_grey.png" alt="">
+            </div>
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">升降</div> 
+            <p class="weui-grid__label">{{Messages.getPosture().lift}}cm</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="controllPosture('before')"  ng-switch="showModel">
+            <div class="weui-grid__icon" ng-switch-when="pictureShow">
+                <img src="../images/before1_grey.png" alt="">
+            </div>
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">前倾</div> 
+            <p class="weui-grid__label">{{Messages.getPosture().before}}º</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="controllPosture('after')"  ng-switch="showModel">
+            <div class="weui-grid__icon" ng-switch-when="pictureShow">
+                <img src="../images/after1_grey.png" alt="">
+            </div>
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">后倾</div> 
+            <p class="weui-grid__label">{{Messages.getPosture().after}}º</p>
+        </a>
+ 
+  -->
+  
+     <a href="javascript:;" class="weui-grid" ng-click="refresh()">
+            <div class="weui-grid__icon">
+                <img src="../images/refresh_grey.png" alt="">
+            </div>
+            <p class="weui-grid__label" >刷新</p>
+        </a>
+          
+        <a href="javascript:;" class="weui-grid" ng-click="reset()">
+            <div class="weui-grid__icon">
+                <img src="../images/reset_grey.png" alt="">
+            </div>
+            <p class="weui-grid__label" >复位</p>
+        </a>
+        <!--
+        <a href="javascript:;" class="weui-grid" ui-sref='video'>
+            <div class="weui-grid__icon">
+                <img src="../images/video_grey.png" alt="">
+            </div>
+            <p class="weui-grid__label">视频(测试)</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ui-sref='record({key:"date",value:"first"})'>
+            <div class="weui-grid__icon">
+                <img src="../images/record_grey.png" alt="">
+            </div>
+            <p class="weui-grid__label">记录</p>
+        </a>
+       -->
+        <a href="javascript:;" class="weui-grid" ui-sref='setup'>
+            <div class="weui-grid__icon">
+                <img src="../images/setup_grey.png" alt="">
+            </div>
+            <p class="weui-grid__label">设置</p>
+        </a>
+    
+        
+        
+        <a href="javascript:;" class="weui-grid" ng-click="DevBoolBT($index)"  ng-switch="showModel" ng-repeat="(k,v) in Messages.getDevBoolStatInfo() track by $index">
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">{{v.name}}</div> 
+            <p class="weui-grid__label" >{{v.value}}</p>
+        </a>
+        <a href="javascript:;" class="weui-grid" ng-click="DevNumBT($index)"  ng-switch="showModel" ng-repeat="(k,v) in Messages.getDevNumStatInfo() track by $index">
+            <div class="weui-grid__icon demos-grid-title" ng-switch-when="textShow">{{v.name}}</div> 
+            <p class="weui-grid__label" >{{v.value}}</p>
+        </a>
+ 
+ 
+
+
+    </div>
+
+
+    <!-- Boolpopup控件 -->
+    <div id="controll-devboolstat" class='weui-popup__container popup-bottom'>
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                    <h1 class="title weui-slider-box__value"> {{DevBoolName}} 的控制面板</h1>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="weui-grids">
+                    <a href="javascript:;" class="weui-grid js_grid" data-id="controll-up" ng-click="sendboolcmd(1)">
+                        <div class="weui-grid__icon">
+                            <img src="../images/up_grey.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">打开</p>
+                    </a>
+                    <a href="javascript:;" class="weui-grid js_grid" data-id="controll-down" ng-click="sendboolcmd(0)">
+                        <div class="weui-grid__icon">
+                            <img src="../images/down_grey.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">关闭</p>
+                    </a>
+                </div>
+                <br/>
+                <div >
+                    <div class="weui-slider-box" id='angle-slider'>
+                        <div class="weui-slider">
+                            <div id="sliderInner" class="weui-slider__inner">
+                                <div id="sliderTrack" style="width: {{percent}}%;" class="weui-slider__track"></div>
+                                <div id="sliderHandler" style="left: {{percent}}%;" class="weui-slider__handler"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+    
+        <!-- Numpopup控件 -->
+        <!--
+     <div id="controll-devboolstat" class='weui-popup__container popup-bottom'>
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <a href="javascript:;" class="picker-button close-popup">关闭</a>
+                    <h1 class="title weui-slider-box__value">「{{pos}}」希望调整到：{{angle}}{{unit}}</h1>
+                </div>
+            </div>
+            <div class="modal-content">
+                <div class="weui-grids">
+                    <a href="javascript:;" class="weui-grid js_grid" data-id="controll-send" ng-click="send()">
+                        <div class="weui-grid__icon">
+                            <img src="../images/send_grey.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">发送</p>
+                    </a>
+                    <a href="javascript:;" class="weui-grid js_grid" data-id="controll-up" ng-click="sendnumcmd(1)">
+                        <div class="weui-grid__icon">
+                            <img src="../images/up_grey.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">增加</p>
+                    </a>
+                    <a href="javascript:;" class="weui-grid js_grid" data-id="controll-down" ng-click="sendnumcmd(0)">
+                        <div class="weui-grid__icon">
+                            <img src="../images/down_grey.png" alt="">
+                        </div>
+                        <p class="weui-grid__label">减少</p>
+                    </a>
+                </div>
+                <br/>
+                <div >
+                    <div class="weui-slider-box" id='angle-slider'>
+                        <div class="weui-slider">
+                            <div id="sliderInner" class="weui-slider__inner">
+                                <div id="sliderTrack" style="width: {{percent}}%;" class="weui-slider__track"></div>
+                                <div id="sliderHandler" style="left: {{percent}}%;" class="weui-slider__handler"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+    -->
+    
+</div>
