@@ -183,24 +183,24 @@ function Messages($websocket) {
 //ws初始化
 function init($websocket){
 	
-	receiver_socket=$websocket("ws://"+document.domain+":8008");
-	var image = $("#receiver");
-	receiver_socket.onMessage(onmessage2);
+//	receiver_socket=$websocket("ws://"+document.domain+":8008");
+//	var image = $("#receiver");
+//	receiver_socket.onMessage(onmessage2);
 	
-function onmessage2(e)
-        {
-		// console.log(e.data);	
+// function onmessage2(e)
+//         {
+// 		// console.log(e.data);	
 		 
-         imgdata=e.data;
-        }
-	    receiver_socket.onClose(function(event) {
-			 console.log("receiver_socket连接关闭的..");
-		})
-    //建立连接时
-    receiver_socket.onOpen(function() {
-      console.log("receiver_socket连接中..");
+//          imgdata=e.data;
+//         }
+	//     receiver_socket.onClose(function(event) {
+	// 		 console.log("receiver_socket连接关闭的..");
+	// 	})
+    // //建立连接时
+    // receiver_socket.onOpen(function() {
+    //   console.log("receiver_socket连接中..");
 
-    });		
+    // });		
 	
 
     ws = $websocket("ws://"+document.domain+":8282");
